@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Header from "./components/Header";
+import Results from "./components/Results";
+import UserInput from "./components/UserInput";
+
+const App = () => {
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 10000,
+    annualInvestment: 120000,
+    expectedReturn: 6,
+    duration: 10,
+  });
+
+  const inputIsValid = userInput.duration >= 1;
+
+  const handleChange = (inputIdentifier, newValue) => {
+    setUserInput((prevUseInput) => {
+      return {
+        ...prevUseInput,
+        [inputIdentifier]: +newValue,
+      };
+    });
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <UserInput userInput={userInput} handleChange={handleChange} />
+      {!inputIsValid && (
+        <p className="error">Please enter duration greater than 0</p>
+      )}
+      {inputIsValid && <Results userInput={userInput} />}
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
