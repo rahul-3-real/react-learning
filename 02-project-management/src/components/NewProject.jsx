@@ -1,6 +1,25 @@
+import { useRef } from "react";
 import Input from "./Input";
 
-const NewProject = () => {
+const NewProject = ({ onAdd }) => {
+  const title = useRef();
+  const description = useRef();
+  const dueDate = useRef();
+
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    const enteredTitle = title.current.value;
+    const enteredDescription = description.current.value;
+    const enteredDueDate = dueDate.current.value;
+
+    onAdd({
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate,
+    });
+  };
+
   return (
     <>
       <ul>
@@ -8,23 +27,17 @@ const NewProject = () => {
           <button>Cancel</button>
         </li>
         <li>
-          <button>Save</button>
+          <button onClick={handleSave}>Save</button>
         </li>
       </ul>
-      <div>
+      <form>
         <Input
           type="text"
-          id="project-name"
-          label="Project Name"
-          placeholder="Project Name"
+          id="title"
+          label="Title"
+          placeholder="Title"
           required
-        />
-        <Input
-          type="date"
-          id="due-date"
-          label="Due Date"
-          placeholder="Due Date"
-          required
+          ref={title}
         />
         <Input
           type="textarea"
@@ -32,9 +45,17 @@ const NewProject = () => {
           label="Description"
           placeholder="Description"
           required
+          ref={description}
         />
-        <button>Create Project</button>
-      </div>
+        <Input
+          type="date"
+          id="due-date"
+          label="Due Date"
+          placeholder="Due Date"
+          required
+          ref={dueDate}
+        />
+      </form>
     </>
   );
 };
