@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --dark: #0e0e0e;
+  --dark-alt: #1a1a1a;
+  --light: #ffffff;
+  --light-alt: #f7f1f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: vart(--light-alt);
+}
+
+.button,
+.button-alt {
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  background: var(--light);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  display: inline-block;
+}
+.button-alt {
+  background: var(--dark);
+  color: var(--light);
+}
+
+/* Main */
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--dark);
+  padding: 30px;
+}
+.sidebar h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--light);
+  margin-bottom: 20px;
+}
+.sidebar .button {
+  display: block;
+  width: 100%;
+}
+.sidebar hr {
+  margin: 30px 0;
+  height: 1px;
+  background: var(--light-alt);
+  opacity: 0.1;
+  width: 100%;
+}
+.sidebar ul li {
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+  background: var(--dark-alt);
+  border-radius: 3px;
+  color: var(--light);
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.sidebar ul li.no-item {
+  background: transparent;
+  text-align: center;
+}
+
+.section {
+  width: calc(100% - 300px);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--light-alt);
+  padding: 30px;
+}
+
+.card {
+  width: 100%;
+  background: var(--light);
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 30px 0 #0002;
+}
+.card h5 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.card label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 3px;
+}
+.card input,
+.card textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 3px;
+  border: 1px solid #0002;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+}
+.card button {
+  margin-right: 15px;
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--light);
+  border: 0;
+  min-width: 50%;
+  max-width: 90%;
+  overflow: visible;
+}
+dialog .title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+  padding: 20px;
+  background: var(--light-alt);
+}
+dialog .title h5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark);
+}
+dialog .content {
+  padding: 20px;
+}
+dialog .content h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-alt);
+}
+dialog form {
+  position: absolute;
+  top: 0;
+  right: -40px;
+}
+dialog form button {
+  width: 40px;
+  height: 40px;
+}
+dialog::backdrop {
+  background: #0e0e0ee3 !important;
+}
+dialog[open] {
+  animation: showModal 0.5s ease-in-out forwards;
+}
+@keyframes showModal {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}

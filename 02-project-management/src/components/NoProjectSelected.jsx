@@ -1,9 +1,10 @@
-const NoProjectSelected = ({ onStartAddProject }) => {
+const NoProjectSelected = ({ onAddProjectHandler }) => {
   return (
-    <div>
-      <h1>No Project Selected</h1>
-      <p>Please select a project or create a new one!</p>
-      <button onClick={onStartAddProject}>Add Project</button>
+    <div className="card">
+      <h5>Please Add A New Project</h5>
+      <button className="button-alt" onClick={onAddProjectHandler}>
+        Create a New Project
+      </button>
     </div>
   );
 };

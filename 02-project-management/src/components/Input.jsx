@@ -1,26 +1,17 @@
 import { forwardRef } from "react";
 
-const Input = forwardRef(({ type, label, id, ...props }, ref) => {
+const Input = forwardRef(({ label, type, ...props }, ref) => {
+  const inputElement =
+    type === "textarea" ? (
+      <textarea {...props} ref={ref} />
+    ) : (
+      <input type={type} ref={ref} {...props} />
+    );
+
   return (
-    <div className="form-group">
-      <label htmlFor={id}>{label}</label>
-      {type === "textarea" && (
-        <textarea
-          className="form-control"
-          id={id}
-          ref={ref}
-          {...props}
-        ></textarea>
-      )}
-      {type !== "textarea" && (
-        <input
-          className="form-control"
-          type={type}
-          id={id}
-          ref={ref}
-          {...props}
-        />
-      )}
+    <div>
+      <label>{label}</label>
+      {inputElement}
     </div>
   );
 });
