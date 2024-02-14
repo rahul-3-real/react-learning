@@ -9,7 +9,13 @@ const Sidebar = ({ onAddProjectHandler, projectInfo, handleOpenProject }) => {
       <ul>
         {projectInfo.projects.length > 0 ? (
           projectInfo.projects.map((project) => (
-            <li onClick={() => handleOpenProject(project.id)} key={project.id}>
+            <li
+              onClick={() => handleOpenProject(project.id)}
+              key={project.id}
+              className={
+                project.id === projectInfo.selectedProjectId ? "selected" : ""
+              }
+            >
               {project.title}
             </li>
           ))
