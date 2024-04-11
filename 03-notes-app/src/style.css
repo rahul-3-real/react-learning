@@ -78,7 +78,7 @@ video {
 }
 p {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--light-alt);
   line-height: 160%;
   letter-spacing: 0.5px;
@@ -120,4 +120,134 @@ p b {
 }
 .text-dark-alt {
   color: var(--dark-alt) !important;
+}
+
+.container {
+  max-width: 1080px;
+  width: 100%;
+  margin: auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+.card {
+  padding: 30px;
+  background: var(--dark);
+  border: 1px solid var(--dark-alt);
+  box-shadow: 7px 7px var(--dark-alt);
+  transition: 0.5s ease all;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.card:hover {
+  border-color: var(--light-alt);
+  box-shadow: 7px 7px var(--light-alt);
+}
+.card h5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--light);
+}
+.card hr {
+  height: 2px;
+  width: 100px;
+  display: block;
+  margin: 20px 0;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--light);
+  margin-bottom: 10px;
+}
+.form-group .form-control {
+  width: 100%;
+  padding: 15px 20px;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  font-weight: 400;
+  background: var(--dark-alt);
+  color: var(--light);
+  border: 1px solid var(--dark-alt);
+  transition: 0.5s ease all;
+}
+.form-group .form-control:active,
+.form-group .form-control:focus {
+  border-color: var(--light-alt);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1cb8;
+  backdrop-filter: blur(5px);
+  transition: 0.5s ease all;
+}
+.modal .modal-body {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  background: var(--dark);
+  padding: 30px;
+  border-radius: 0;
+  animation: slideDown 1s ease;
+}
+@keyframes slideDown {
+  from {
+    top: 20%;
+  }
+  to {
+    top: 10%;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  border-bottom: 1px solid var(--dark-alt);
+  padding: 30px 0;
+}
+.header h1 {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--light);
+  text-transform: capitalize;
+}
+.button {
+  padding: 10px 20px;
+  background: var(--light);
+  color: var(--dark);
+  border: 1px solid var(--light);
+  outline: 0;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--light-alt);
+  transition: 0.5s ease all;
+}
+.button:hover {
+  background: var(--dark);
+  border-color: var(--light);
+  box-shadow: 5px 5px 0 var(--light);
+  color: var(--light);
 }
