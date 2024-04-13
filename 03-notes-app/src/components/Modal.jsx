@@ -1,18 +1,7 @@
-const Modal = ({ onModalVisibility, modalIsVisible, children }) => {
-  const handleModalClick = () => {
-    onModalVisibility();
-  };
-
-  const handleModalBodyClick = (e) => {
-    e.stopPropagation();
-  };
-
+const Modal = ({ children, handleModalCancelClick, handleModalClick }) => {
   return (
-    <div
-      className={`modal ${modalIsVisible ? "show" : ""}`}
-      onClick={handleModalClick}
-    >
-      <div className="modal-body" onClick={handleModalBodyClick}>
+    <div className="modal" onClick={handleModalClick}>
+      <div className="modal-body" onClick={handleModalCancelClick}>
         {children}
       </div>
     </div>
