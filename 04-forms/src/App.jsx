@@ -1,7 +1,15 @@
+import Header from "./components/Header";
+// import Login from "./components/Login";
+import Register from "./components/Register";
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="container">
+      <Header />
+      <div className="card">
+        {/* <Login /> */}
+        <Register />
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 const Header = () => {
   return (
-    <div>
-      <h2>Header</h2>
-    </div>
+    <header className="header">
+      <h1>React Forms</h1>
+    </header>
   );
 };
 
