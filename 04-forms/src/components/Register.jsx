@@ -15,7 +15,13 @@ const Register = () => {
       <hr />
       <div className="form-group">
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" className="form-control" name="email" />
+        <input
+          type="email"
+          id="email"
+          className="form-control"
+          name="email"
+          required
+        />
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
@@ -24,6 +30,8 @@ const Register = () => {
           id="password"
           className="form-control"
           name="password"
+          required
+          minLength={6}
         />
       </div>
       <div className="form-group">
@@ -33,6 +41,7 @@ const Register = () => {
           id="confirm-password"
           className="form-control"
           name="confirm-password"
+          required
         />
       </div>
       <div className="form-group">
@@ -42,6 +51,7 @@ const Register = () => {
           id="first-name"
           className="form-control"
           name="first-name"
+          required
         />
       </div>
       <div className="form-group">
@@ -51,11 +61,12 @@ const Register = () => {
           id="last-name"
           className="form-control"
           name="last-name"
+          required
         />
       </div>
       <div className="form-group">
         <label htmlFor="role">What best describes you?</label>
-        <select name="role" id="role" className="form-control">
+        <select name="role" id="role" className="form-control" required>
           <option value="">Select</option>
           <option value="student">Student</option>
           <option value="teacher">Teacher</option>
@@ -102,6 +113,7 @@ const Register = () => {
           name="terms"
           id="terms"
           value="Terms & Conditions"
+          required
         />
         <label htmlFor="terms">Agree to the Terms & Conditions</label>
       </div>
